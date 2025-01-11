@@ -11,12 +11,47 @@ import AdminProjectView from "../components/admin-view/project";
 const initialHomeFormData = {
   heading:"",
   summary:""
-}
+};
+
+const initialAboutFormData = {
+  aboutme:"",
+  noofprojects:"",
+  yearofexperience:"",
+  noofclients:"",
+  skills:"",
+};
+
+const initialExperienceFormData = {
+  position:"",
+  company:"",
+  duration:"",
+  location:"",
+  jobprofile:"",
+};
+
+const initialEducationFormData = {
+  degree:"",
+  year:"",
+  college:"",
+};
+
+const initialProjectFormData = {
+  name:"",
+  website:"",
+  technologies:"",
+  github:""
+};
+
 
 export default function AdminView() {
  const[currentSelectedTab, setCurrentSelectedTab] = useState('home'); 
  const[homeViewFormData, sethomeViewFormData] = useState(initialHomeFormData);
+ const[aboutViewFormData, setaboutViewFormData] = useState(initialAboutFormData);
+ const[experienceViewFormData, setexperienceViewFormData] = useState(initialExperienceFormData);
+ const[educationViewFormData, seteducationViewFormData] = useState(initialEducationFormData);
+ const[projectViewFormData, setprojectViewFormData] = useState(initialProjectFormData);
  
+
  const menuItem = [
     {
       id:'home',
@@ -29,22 +64,34 @@ export default function AdminView() {
     {
       id:'about',
       label: 'About',
-      componet: <AdminAboutView/>
+      componet: <AdminAboutView
+      formData={aboutViewFormData}
+      setFormData={setaboutViewFormData}
+      />
     },
     {
       id:'experience',
       label: 'Experience',
-      componet: <AdminExperienceView/>
+      componet: <AdminExperienceView
+      formData={experienceViewFormData}
+      setFormData={setexperienceViewFormData}
+      />
     },
     {
       id:'education',
       label: 'Education',
-      componet: <AdminEducationView/>
+      componet: <AdminEducationView
+      formData={educationViewFormData}
+      setFormData={seteducationViewFormData}
+      />
     },
     {
       id:'project',
       label: 'Project',
-      componet: <AdminProjectView/>
+      componet: <AdminProjectView
+      formData={projectViewFormData}
+      setFormData={setprojectViewFormData}
+      />
     },
     {
       id:'contact',

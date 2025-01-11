@@ -1,6 +1,6 @@
 "use client";
 
-export default function FormControls({ controls, formData, setFormDataa }) {
+export default function FormControls({ controls, formData, setFormData }) {
   return controls.map((controllItem) => (
     <div className="mb-4">
       <level className="block text-gray-700 text-sm font-bold mb-2">
