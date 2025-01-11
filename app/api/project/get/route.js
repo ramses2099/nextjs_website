@@ -1,6 +1,6 @@
 import connectToDB from "@/app/database";
 import Project from "@/app/models/Project";
-
+import { NextResponse } from "next/server";
 export const dynamic = "force-dynamic";
 
 export async function GET(req) {

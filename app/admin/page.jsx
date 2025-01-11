@@ -1,5 +1,6 @@
 "use client";
 
+import { addData } from "@/services";
 import { useState } from "react";
 import AdminAboutView from "../components/admin-view/about";
 import AdminContactView from "../components/admin-view/contact";
@@ -59,6 +60,7 @@ export default function AdminView() {
       componet: <AdminHomeView 
       formData={homeViewFormData}
       setFormData={sethomeViewFormData}
+      handleSaveData={handleSaveData}
       />
     },
     {
@@ -67,6 +69,7 @@ export default function AdminView() {
       componet: <AdminAboutView
       formData={aboutViewFormData}
       setFormData={setaboutViewFormData}
+      handleSaveData={handleSaveData}
       />
     },
     {
@@ -75,6 +78,7 @@ export default function AdminView() {
       componet: <AdminExperienceView
       formData={experienceViewFormData}
       setFormData={setexperienceViewFormData}
+      handleSaveData={handleSaveData}
       />
     },
     {
@@ -83,6 +87,7 @@ export default function AdminView() {
       componet: <AdminEducationView
       formData={educationViewFormData}
       setFormData={seteducationViewFormData}
+      handleSaveData={handleSaveData}
       />
     },
     {
@@ -91,6 +96,7 @@ export default function AdminView() {
       componet: <AdminProjectView
       formData={projectViewFormData}
       setFormData={setprojectViewFormData}
+      handleSaveData={handleSaveData}
       />
     },
     {
@@ -99,6 +105,23 @@ export default function AdminView() {
       componet: <AdminContactView/>
     }
  ]
+
+ async function handleSaveData(args) {
+  console.log(args);
+  
+  const dataMap = {
+    home: homeViewFormData,
+    about: aboutViewFormData,
+    experience: experienceViewFormData,
+    education: educationViewFormData,
+    project: projectViewFormData,
+  }
+
+  const response = await addData(currentSelectedTab, dataMap[currentSelectedTab]);
+  
+  console.log(response,"response");
+
+ }
 
   return (
     <div className="border-b border-gray-400">

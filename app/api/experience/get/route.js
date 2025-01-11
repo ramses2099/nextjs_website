@@ -1,5 +1,6 @@
 import connectToDB from "@/app/database";
 import Experience from "@/app/models/Experience";
+import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
